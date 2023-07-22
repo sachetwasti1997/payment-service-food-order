@@ -1,0 +1,12 @@
+server:
+  port: 8052
+
+spring:
+  kafka:
+    orderconsumer:
+      group-id: payment-order
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      properties[request.timeout.ms]: 600000
+    bootstrap-servers: kafka-service:9090
