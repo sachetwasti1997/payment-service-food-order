@@ -2,11 +2,18 @@ server:
   port: 8052
 
 spring:
+  data:
+    mongodb:
+      uri: mongodb://payment-food-mongo-srv:27017/auth?directConnection=true
   kafka:
-    orderconsumer:
-      group-id: payment-order
+    orderevent: "order-event"
+    cancelorder: "cancelorder"
+    ordercreatedconsumer:
+      group-id: payment-order-create
+    ordercancelledconsumer:
+      group-id: payment-order-cancelled
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
       properties[request.timeout.ms]: 600000
-    bootstrap-servers: kafka-service:9090
+    bootstrap-servers: kafka-service:9092

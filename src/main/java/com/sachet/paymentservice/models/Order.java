@@ -19,9 +19,8 @@ public class Order {
     private String id;
     private String userId;
     private String status;
-    private Date expiresAt;
+    private String expiresAt;
     private String menuId;
     private Double menuPrice;
-    private Integer version;
 }
 
